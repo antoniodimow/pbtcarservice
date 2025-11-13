@@ -104,9 +104,11 @@ export async function POST(request: Request) {
     });
 
     // Send email to admin
+    // NOTE: In testing mode, sending to antoniodimov04@gmail.com
+    // Change to 'info@pbtcarservice.com' once domain is verified
     const adminEmail = await resend.emails.send({
       from: 'Palm Beach Transportation Bookings <onboarding@resend.dev>',
-      to: 'info@pbtcarservice.com',
+      to: 'antoniodimov04@gmail.com',
       subject: `New Booking Request from ${name}`,
       html: `
         <!DOCTYPE html>

@@ -90,12 +90,13 @@ export default function BookingPage() {
           className="absolute inset-0 z-0"
           style={{
             backgroundImage:
-              "url(https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=2070&auto=format&fit=crop)",
+              "url(/images/hero/chauffeur-service.jpg)",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/75"></div>
+          <div className="absolute inset-0 bg-black/50"></div>
         </div>
 
         <div className="container mx-auto px-4 relative z-10 pt-24 pb-12">
