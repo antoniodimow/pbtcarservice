@@ -29,7 +29,7 @@ export async function POST(request: Request) {
 
     // Send email to customer
     const customerEmail = await resend.emails.send({
-      from: 'Palm Beach Transportation <noreply@pbtcarservice.com>',
+      from: 'Palm Beach Transportation <onboarding@resend.dev>',
       to: email,
       subject: 'Booking Received - Confirmation Pending',
       html: `
@@ -105,7 +105,7 @@ export async function POST(request: Request) {
 
     // Send email to admin
     const adminEmail = await resend.emails.send({
-      from: 'Palm Beach Transportation Bookings <noreply@pbtcarservice.com>',
+      from: 'Palm Beach Transportation Bookings <onboarding@resend.dev>',
       to: 'info@pbtcarservice.com',
       subject: `New Booking Request from ${name}`,
       html: `
