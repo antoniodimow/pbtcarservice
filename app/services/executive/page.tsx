@@ -1,3 +1,5 @@
+"use client";
+
 import { ServicePageHero } from "@/components/services/ServicePageHero";
 import { ServiceFeatures } from "@/components/services/ServiceFeatures";
 import { CTASection } from "@/components/home/CTASection";
