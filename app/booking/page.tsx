@@ -298,7 +298,9 @@ export default function BookingPage() {
                             value={formData.date}
                             onChange={handleChange}
                             min={new Date().toISOString().split('T')[0]}
-                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
+                            placeholder="Select date"
+                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent text-charcoal"
+                            style={{ colorScheme: 'light' }}
                           />
                         </div>
                         <div>
@@ -312,7 +314,9 @@ export default function BookingPage() {
                             required
                             value={formData.time}
                             onChange={handleChange}
-                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
+                            placeholder="Select time"
+                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent text-charcoal"
+                            style={{ colorScheme: 'light' }}
                           />
                         </div>
                       </div>
