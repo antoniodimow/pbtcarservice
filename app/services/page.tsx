@@ -114,9 +114,9 @@ export default function ServicesPage() {
                 } gap-8 items-center`}
               >
                 {/* Image */}
-                <div className="lg:w-1/2">
+                <div className="w-full lg:w-1/2">
                   <div
-                    className="relative h-96 rounded-xl overflow-hidden shadow-xl"
+                    className="relative h-64 sm:h-80 md:h-96 rounded-xl overflow-hidden shadow-xl"
                     style={{
                       backgroundImage: `url(${service.image})`,
                       backgroundSize: "cover",
