@@ -39,10 +39,7 @@ export function Header() {
         {/* Logo */}
         <Link
           href="/"
-          className={cn(
-            "flex items-center transition-opacity duration-300",
-            scrolled || mobileMenuOpen ? "opacity-100" : "opacity-0 lg:opacity-100"
-          )}
+          className="flex items-center transition-opacity duration-300 opacity-100"
         >
           <Image
             src="/images/logos/logo.png"

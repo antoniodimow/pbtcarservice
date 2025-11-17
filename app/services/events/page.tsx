@@ -51,7 +51,7 @@ export default function EventLogisticsPage() {
         title="Event & Conference Logistics"
         description="Comprehensive transportation coordination for conferences, weddings, corporate events, and special occasions of any size."
         Icon={Calendar}
-        backgroundImage="https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=2069&auto=format&fit=crop"
+        backgroundImage="/images/services/event-logistics.jpg"
       />
       <ServiceFeatures features={features} />
 

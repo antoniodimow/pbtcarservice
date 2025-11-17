@@ -105,42 +105,6 @@ export default function BookingPage() {
         </div>
       </section>
 
-      {/* Quick Booking Info */}
-      <section className="py-16 bg-primary text-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="font-playfair text-3xl md:text-4xl font-bold mb-8">
-              What to Include in Your Booking
-            </h2>
-            <div className="grid md:grid-cols-2 gap-6 text-left">
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                <h3 className="font-semibold text-xl text-gold mb-4">
-                  Trip Details:
-                </h3>
-                <ul className="space-y-2 text-gray-200">
-                  <li>• Pickup location and address</li>
-                  <li>• Destination address</li>
-                  <li>• Date and time</li>
-                  <li>• Number of passengers</li>
-                  <li>• Luggage requirements</li>
-                </ul>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                <h3 className="font-semibold text-xl text-gold mb-4">
-                  Contact Information:
-                </h3>
-                <ul className="space-y-2 text-gray-200">
-                  <li>• Your name</li>
-                  <li>• Phone number</li>
-                  <li>• Email address</li>
-                  <li>• Preferred vehicle type</li>
-                  <li>• Any special requests</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </main>
   );
 }

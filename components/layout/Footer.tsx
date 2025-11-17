@@ -145,8 +145,14 @@ export function Footer() {
             &copy; {new Date().getFullYear()} Palm Beach Transportation
             Services. All rights reserved.
           </p>
-          <p className="text-xs text-charcoal">
-            Created by Antonio Dimov
+          <p className="text-xs sm:text-sm text-charcoal">
+            Website by{" "}
+            <a
+              href="mailto:antoniodimov04@gmail.com"
+              className="text-gold hover:text-gold/80 transition-colors underline decoration-gold/40 hover:decoration-gold/60"
+            >
+              Antonio Dimov
+            </a>
           </p>
         </div>
       </div>

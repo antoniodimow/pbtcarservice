@@ -51,7 +51,7 @@ export default function ExecutiveTransportPage() {
         title="Executive Transport Services"
         description="Discreet, professional chauffeur service designed for high-level executives and VIP clients who demand excellence in every detail."
         Icon={Users}
-        backgroundImage="https://images.unsplash.com/photo-1519003722824-194d4455a60c?q=80&w=2073&auto=format&fit=crop"
+        backgroundImage="/images/services/executive-transport.jpg"
       />
       <ServiceFeatures features={features} />
 
