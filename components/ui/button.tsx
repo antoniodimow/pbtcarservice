@@ -37,12 +37,16 @@ export interface ButtonProps
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
+  ({ className, variant, size, asChild = false, children, ...props }, ref) => {
     if (asChild) {
       // When asChild is true, render as a div wrapper for Link or other components
+      // Pass through all props including style
       return (
-        <div className={cn(buttonVariants({ variant, size, className }))}>
-          {props.children}
+        <div
+          className={cn(buttonVariants({ variant, size, className }))}
+          {...(props as any)}
+        >
+          {children}
         </div>
       );
     }
@@ -52,7 +56,9 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
         {...props}
-      />
+      >
+        {children}
+      </button>
     );
   }
 );
