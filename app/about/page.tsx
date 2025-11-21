@@ -37,15 +37,15 @@ export default function AboutPage() {
     <main>
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
-        <div
-          className="absolute inset-0 z-0"
-          style={{
-            backgroundImage:
-              "url(/images/hero/chauffeur-service.jpg)",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/hero/chauffeur-service.jpg"
+            alt="About Palm Beach Transportation - Luxury car service"
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
           <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/75"></div>
           <div className="absolute inset-0 bg-black/50"></div>
         </div>

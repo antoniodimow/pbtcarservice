@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, Calendar } from "lucide-react";
 
@@ -9,15 +10,16 @@ export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image - Luxury Car */}
-      <div
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage:
-            "url(https://images.unsplash.com/photo-1563720360172-67b8f3dce741?q=80&w=2070&auto=format&fit=crop)",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      />
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="https://images.unsplash.com/photo-1563720360172-67b8f3dce741?q=80&w=2000"
+          alt="Luxury chauffeur service with premium vehicles"
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
+        />
+      </div>
       {/* Dark overlay for text readability */}
       <div className="absolute inset-0 z-0 bg-black/60"></div>
 

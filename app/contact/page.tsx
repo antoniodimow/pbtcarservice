@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
 
@@ -9,15 +10,15 @@ export default function ContactPage() {
     <main>
       {/* Hero Section */}
       <section className="relative min-h-[40vh] flex items-center justify-center overflow-hidden">
-        <div
-          className="absolute inset-0 z-0"
-          style={{
-            backgroundImage:
-              "url(/images/hero/miami-aerial.jpg)",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/hero/miami-aerial.jpg"
+            alt="Contact Palm Beach Transportation"
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
           <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/75"></div>
           <div className="absolute inset-0 bg-black/50"></div>
         </div>
@@ -271,9 +272,9 @@ export default function ContactPage() {
               color: '#FFFFFF'
             }}
           >
-            <a href="tel:+15615551234" className="flex items-center justify-center font-bold" style={{ color: '#FFFFFF' }}>
+            <a href="tel:+15613346350" className="flex items-center justify-center font-bold" style={{ color: '#FFFFFF' }}>
               <Phone className="mr-2 h-5 w-5" />
-              Call Now: (561) 555-1234
+              Call Now: (561) 334-6350
             </a>
           </Button>
         </div>

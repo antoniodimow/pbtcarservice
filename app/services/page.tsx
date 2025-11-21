@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { Briefcase, Users, Calendar, Plane, ArrowRight } from "lucide-react";
 import { CTASection } from "@/components/home/CTASection";
 
@@ -69,16 +70,17 @@ export default function ServicesPage() {
     <main>
       {/* Hero Section */}
       <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden">
-        <div
-          className="absolute inset-0 z-0"
-          style={{
-            backgroundImage:
-              "url(/images/services/luxury-limousine-hero.jpg)",
-            backgroundSize: "cover",
-            backgroundPosition: "center 60%",
-          }}
-        >
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/services/luxury-limousine-hero.jpg"
+            alt="Luxury transportation services in Palm Beach"
+            fill
+            priority
+            className="object-cover object-[center_60%]"
+            sizes="100vw"
+          />
           <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/75"></div>
+          <div className="absolute inset-0 bg-black/50"></div>
         </div>
 
         <div className="container mx-auto px-4 relative z-10 pt-24 pb-12">
@@ -115,14 +117,14 @@ export default function ServicesPage() {
               >
                 {/* Image */}
                 <div className="w-full lg:w-1/2">
-                  <div
-                    className="relative h-64 sm:h-80 md:h-96 rounded-xl overflow-hidden shadow-xl"
-                    style={{
-                      backgroundImage: `url(${service.image})`,
-                      backgroundSize: "cover",
-                      backgroundPosition: "center",
-                    }}
-                  >
+                  <div className="relative h-64 sm:h-80 md:h-96 rounded-xl overflow-hidden shadow-xl">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
                   </div>
                 </div>

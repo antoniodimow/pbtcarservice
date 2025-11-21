@@ -17,7 +17,7 @@ const faqs = [
       {
         question: "Can I make last-minute bookings?",
         answer:
-          "Yes! We offer 24/7 service and will do our best to accommodate last-minute requests. Call our concierge team at (561) 555-1234, and we'll check availability immediately.",
+          "Yes! We offer 24/7 service and will do our best to accommodate last-minute requests. Call our concierge team at (561) 334-6350, and we'll check availability immediately.",
       },
       {
         question: "How do I cancel or modify my reservation?",
@@ -214,10 +214,10 @@ export default function FAQPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="tel:+15615551234"
+              href="tel:+15613346350"
               className="inline-flex items-center justify-center gap-2 bg-gold text-primary hover:bg-gold-light px-8 py-3 rounded-lg font-medium transition-all hover:scale-105 shadow-md"
             >
-              Call (561) 555-1234
+              Call (561) 334-6350
             </a>
             <a
               href="/contact"
