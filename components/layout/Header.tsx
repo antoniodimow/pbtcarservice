@@ -45,11 +45,12 @@ export function Header() {
             src="/images/logos/logo.png"
             alt="Palm Beach Transportation Services"
             width={32}
-            height={32}
+            height={43}
             className={cn(
               "object-contain transition-all duration-300",
               scrolled || mobileMenuOpen ? "brightness-0" : ""
             )}
+            style={{ width: 32, height: 'auto' }}
             priority
           />
         </Link>
