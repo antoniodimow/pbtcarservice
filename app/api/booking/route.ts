@@ -105,7 +105,7 @@ export async function POST(request: NextRequest) {
     // Send email to business owner
     const { data: ownerEmailData, error: ownerEmailError } = await resend.emails.send({
       from: 'PBT Car Service <onboarding@resend.dev>',
-      to: 'antoniodimov04@gmail.com',
+      to: 'pbtcarservice@gmail.com',
       subject: `New Reservation Request from ${name}`,
       html: emailHtml,
     });
