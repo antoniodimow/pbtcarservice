@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 
 const footerLinks = {
   services: [
@@ -10,8 +10,6 @@ const footerLinks = {
   ],
   company: [
     { name: "About Us", href: "/about" },
-    { name: "Our Fleet", href: "/fleet" },
-    { name: "Testimonials", href: "/testimonials" },
     { name: "Contact", href: "/contact" },
   ],
   legal: [
@@ -45,11 +43,11 @@ export function Footer() {
                 (561) 334-6350
               </a>
               <a
-                href="mailto:info@pbtcarservice.com"
+                href="mailto:pbtcarservice@gmail.com"
                 className="flex items-center gap-2 text-sm text-primary hover:text-gold transition-colors"
               >
                 <Mail className="h-4 w-4" />
-                info@pbtcarservice.com
+                pbtcarservice@gmail.com
               </a>
               <div className="flex items-start gap-2 text-sm text-primary">
                 <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
@@ -95,7 +93,7 @@ export function Footer() {
           {/* Legal & Social */}
           <div>
             <h4 className="font-semibold text-gold mb-4">Legal</h4>
-            <ul className="space-y-2 mb-6">
+            <ul className="space-y-2">
               {footerLinks.legal.map((link) => (
                 <li key={link.name}>
                   <Link
@@ -107,35 +105,6 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-            <div>
-              <h4 className="font-semibold text-gold mb-4">Follow Us</h4>
-              <div className="flex gap-4">
-                <a
-                  href="https://facebook.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary hover:text-gold transition-colors"
-                >
-                  <Facebook className="h-5 w-5" />
-                </a>
-                <a
-                  href="https://instagram.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary hover:text-gold transition-colors"
-                >
-                  <Instagram className="h-5 w-5" />
-                </a>
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary hover:text-gold transition-colors"
-                >
-                  <Linkedin className="h-5 w-5" />
-                </a>
-              </div>
-            </div>
           </div>
         </div>
 

@@ -88,10 +88,10 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-semibold text-primary mb-1">Email</h3>
                       <a
-                        href="mailto:info@pbtcarservice.com"
+                        href="mailto:pbtcarservice@gmail.com"
                         className="text-charcoal hover:text-gold transition-colors"
                       >
-                        info@pbtcarservice.com
+                        pbtcarservice@gmail.com
                       </a>
                       <p className="text-sm text-charcoal/70 mt-1">
                         Response within 1 hour

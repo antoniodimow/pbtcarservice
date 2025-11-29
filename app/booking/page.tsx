@@ -459,9 +459,9 @@ export default function BookingPage() {
                     </a>
                   </Button>
                   <Button asChild variant="outline" className="w-full">
-                    <a href="mailto:info@pbtcarservice.com" className="flex items-center justify-center">
+                    <a href="mailto:pbtcarservice@gmail.com" className="flex items-center justify-center">
                       <Mail className="h-4 w-4 mr-2" />
-                      Email: info@pbtcarservice.com
+                      Email: pbtcarservice@gmail.com
                     </a>
                   </Button>
                 </div>

@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -15,9 +16,15 @@ const navigation = [
   { name: "Contact", href: "/contact" },
 ];
 
+// Pages that should always have a white navbar
+const whiteNavbarPages = ["/privacy", "/terms", "/cancellation"];
+
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+
+  const forceWhiteNavbar = whiteNavbarPages.includes(pathname);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,7 +39,7 @@ export function Header() {
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        scrolled || mobileMenuOpen ? "bg-white shadow-xl lg:bg-white" : "bg-transparent lg:bg-primary lg:shadow-xl"
+        scrolled || mobileMenuOpen || forceWhiteNavbar ? "bg-white shadow-xl lg:bg-white" : "bg-transparent lg:bg-primary lg:shadow-xl"
       )}
     >
       <nav className="container mx-auto flex items-center justify-between p-4 sm:p-5 lg:px-8 relative">
@@ -48,7 +55,7 @@ export function Header() {
             height={43}
             className={cn(
               "object-contain transition-all duration-300",
-              scrolled || mobileMenuOpen ? "brightness-0" : ""
+              scrolled || mobileMenuOpen || forceWhiteNavbar ? "brightness-0" : ""
             )}
             style={{ width: 32, height: 'auto' }}
             priority
@@ -63,7 +70,7 @@ export function Header() {
               href={item.href}
               className={cn(
                 "text-lg font-bold hover:text-gold transition-colors tracking-wide font-inter",
-                scrolled ? "text-primary" : "text-white"
+                scrolled || forceWhiteNavbar ? "text-primary" : "text-white"
               )}
             >
               {item.name}
@@ -77,7 +84,7 @@ export function Header() {
             href="tel:+15613346350"
             className={cn(
               "flex items-center gap-2 hover:text-gold transition-colors font-bold font-inter",
-              scrolled ? "text-primary" : "text-white"
+              scrolled || forceWhiteNavbar ? "text-primary" : "text-white"
             )}
           >
             <Phone className="h-5 w-5" />
@@ -105,7 +112,7 @@ export function Header() {
           type="button"
           className={cn(
             "lg:hidden absolute right-4 transition-colors",
-            scrolled || mobileMenuOpen ? "text-primary" : "text-white"
+            scrolled || mobileMenuOpen || forceWhiteNavbar ? "text-primary" : "text-white"
           )}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
