@@ -1,47 +1,46 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { Resend } from 'resend';
+import { sendEmail } from '@/lib/email';
 
 export async function GET(request: NextRequest) {
   try {
-    const apiKey = process.env.RESEND_API_KEY;
+    const emailUser = process.env.EMAIL_USER;
+    const emailPassword = process.env.EMAIL_APP_PASSWORD;
 
-    // Check if API key exists
-    if (!apiKey) {
+    // Check if credentials exist
+    if (!emailUser || !emailPassword) {
       return NextResponse.json({
-        error: 'API key not found',
-        hasKey: false,
+        error: 'Email credentials not found',
+        hasCredentials: false,
+        message: 'Please set EMAIL_USER and EMAIL_APP_PASSWORD environment variables',
       }, { status: 500 });
     }
 
-    // Show partial API key for verification (first 8 chars only)
-    const partialKey = apiKey.substring(0, 8) + '...';
-
-    // Try to initialize Resend
-    const resend = new Resend(apiKey);
+    // Show partial email for verification
+    const partialEmail = emailUser.substring(0, 3) + '***@' + emailUser.split('@')[1];
 
     // Attempt to send a test email
-    const { data, error } = await resend.emails.send({
-      from: 'PBT Car Service <onboarding@resend.dev>',
-      to: 'pbtcarservice@gmail.com',
-      subject: 'Test Email - API Key Verification',
-      html: '<p>This is a test email to verify the Resend API key is working correctly.</p>',
-    });
+    try {
+      const result = await sendEmail({
+        to: 'pbtcarservice@gmail.com',
+        subject: 'Test Email - Gmail SMTP Verification',
+        html: '<p>This is a test email to verify that Gmail SMTP is working correctly with Nodemailer.</p>',
+      });
 
-    if (error) {
+      return NextResponse.json({
+        success: true,
+        message: 'Email credentials are valid and test email sent successfully',
+        emailUser: partialEmail,
+        messageId: result.messageId,
+      }, { status: 200 });
+
+    } catch (emailError: any) {
       return NextResponse.json({
         error: 'Failed to send test email',
-        details: error,
-        apiKeyPrefix: partialKey,
-        hasKey: true,
+        details: emailError.message,
+        emailUser: partialEmail,
+        hasCredentials: true,
       }, { status: 500 });
     }
-
-    return NextResponse.json({
-      success: true,
-      message: 'API key is valid and test email sent successfully',
-      apiKeyPrefix: partialKey,
-      emailId: data?.id,
-    }, { status: 200 });
 
   } catch (error: any) {
     return NextResponse.json({

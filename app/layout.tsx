@@ -36,6 +36,14 @@ export const metadata: Metadata = {
     "airport transfers",
     "event transportation",
   ],
+  icons: {
+    icon: [
+      { url: "/icon.png", type: "image/png" },
+    ],
+    apple: [
+      { url: "/icon.png", type: "image/png" },
+    ],
+  },
 };
 
 export default function RootLayout({

@@ -1,17 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { Resend } from 'resend';
+import { sendEmail } from '@/lib/email';
 
 export async function POST(request: NextRequest) {
   try {
-    // Initialize Resend with API key (only at runtime)
-    const apiKey = process.env.RESEND_API_KEY;
-    if (!apiKey) {
+    // Check if email credentials are configured
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_APP_PASSWORD) {
       return NextResponse.json(
         { error: 'Email service not configured' },
         { status: 503 }
       );
     }
-    const resend = new Resend(apiKey);
 
     const body = await request.json();
 
@@ -102,79 +100,15 @@ export async function POST(request: NextRequest) {
       </html>
     `;
 
-    // Send email to business owner
-    const { data: ownerEmailData, error: ownerEmailError } = await resend.emails.send({
-      from: 'PBT Car Service <onboarding@resend.dev>',
-      to: 'pbtcarservice@gmail.com',
+    // Send notification email to business owner
+    await sendEmail({
+      to: 'antoniodimov04@gmail.com',
       subject: `New Reservation Request from ${name}`,
       html: emailHtml,
     });
 
-    if (ownerEmailError) {
-      console.error('Error sending owner email:', ownerEmailError);
-      return NextResponse.json(
-        { error: 'Failed to send notification email' },
-        { status: 500 }
-      );
-    }
-
-    // Send confirmation email to customer
-    const customerEmailHtml = `
-      <!DOCTYPE html>
-      <html>
-        <head>
-          <style>
-            body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-            .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-            .header { background: linear-gradient(135deg, #C9A961 0%, #E5D4A5 100%); color: #0A1828; padding: 30px; text-align: center; border-radius: 8px 8px 0 0; }
-            .content { background: #ffffff; padding: 30px; border: 1px solid #e0e0e0; }
-            .footer { background: #F5F5F0; padding: 20px; text-align: center; border-radius: 0 0 8px 8px; font-size: 14px; color: #666; }
-          </style>
-        </head>
-        <body>
-          <div class="container">
-            <div class="header">
-              <h1 style="margin: 0; font-size: 28px;">Reservation Received</h1>
-              <p style="margin: 10px 0 0 0;">Thank you for choosing Palm Beach Transportation Services</p>
-            </div>
-
-            <div class="content">
-              <p>Dear ${name},</p>
-              <p>We have received your reservation request and will contact you shortly to confirm your booking details.</p>
-              <p><strong>Your Reservation Details:</strong></p>
-              <ul style="list-style: none; padding-left: 0;">
-                <li><strong>Pickup Date:</strong> ${pickupDate} at ${pickupTime}</li>
-                <li><strong>Pickup Location:</strong> ${pickupAddress}</li>
-                <li><strong>Dropoff Location:</strong> ${dropoffAddress}</li>
-                <li><strong>Passengers:</strong> ${passengerCount}</li>
-              </ul>
-              <p>If you have any questions or need to modify your reservation, please contact us at:</p>
-              <p>
-                <strong>Phone:</strong> (561) 334-6350<br>
-                <strong>Email:</strong> info@pbtcarservice.com
-              </p>
-              <p>We look forward to serving you!</p>
-              <p style="margin-top: 30px;">Best regards,<br><strong>Palm Beach Transportation Services</strong></p>
-            </div>
-
-            <div class="footer">
-              <p style="margin: 0;">This is an automated confirmation email.</p>
-            </div>
-          </div>
-        </body>
-      </html>
-    `;
-
-    // Send confirmation email to customer
-    await resend.emails.send({
-      from: 'PBT Car Service <onboarding@resend.dev>',
-      to: email,
-      subject: 'Reservation Confirmation - Palm Beach Transportation Services',
-      html: customerEmailHtml,
-    });
-
     return NextResponse.json(
-      { message: 'Booking request submitted successfully', data: ownerEmailData },
+      { message: 'Booking request submitted successfully' },
       { status: 200 }
     );
   } catch (error) {
