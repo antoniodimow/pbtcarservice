@@ -23,6 +23,7 @@ export async function POST(request: NextRequest) {
       pickupAddress,
       dropoffAddress,
       passengerCount,
+      vehicleType,
       specialRequests,
       isRoundTrip,
       returnDate,
@@ -76,6 +77,7 @@ export async function POST(request: NextRequest) {
                 <div class="info-row"><span class="label">Pickup Address:</span> <span class="value">${pickupAddress}</span></div>
                 <div class="info-row"><span class="label">Dropoff Address:</span> <span class="value">${dropoffAddress}</span></div>
                 <div class="info-row"><span class="label">Number of Passengers:</span> <span class="value">${passengerCount}</span></div>
+                <div class="info-row"><span class="label">Vehicle Type:</span> <span class="value">${vehicleType || 'Not specified'}</span></div>
                 ${isRoundTrip ? `
                   <div class="info-row"><span class="label">Round Trip:</span> <span class="value">Yes</span></div>
                   <div class="info-row"><span class="label">Return Date:</span> <span class="value">${returnDate || 'N/A'}</span></div>

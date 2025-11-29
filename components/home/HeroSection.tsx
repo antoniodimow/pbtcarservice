@@ -99,7 +99,7 @@ export function HeroSection() {
                 color: '#E5D4A5',
                 textShadow: '0 2px 15px rgba(0,0,0,0.5)'
               }}>
-                98%
+                100%
               </div>
               <div className="text-xs sm:text-sm md:text-base font-medium tracking-wide uppercase" style={{
                 color: '#FFFFFF',

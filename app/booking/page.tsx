@@ -17,6 +17,7 @@ export default function BookingPage() {
     pickupAddress: "",
     dropoffAddress: "",
     passengerCount: "1",
+    vehicleType: "",
     specialRequests: "",
     isRoundTrip: false,
     returnDate: "",
@@ -75,6 +76,7 @@ export default function BookingPage() {
         pickupAddress: "",
         dropoffAddress: "",
         passengerCount: "1",
+        vehicleType: "",
         specialRequests: "",
         isRoundTrip: false,
         returnDate: "",
@@ -271,21 +273,41 @@ export default function BookingPage() {
                       />
                     </div>
 
-                    <div>
-                      <label htmlFor="passengerCount" className="block text-sm font-medium text-charcoal mb-1">
-                        Number of Passengers *
-                      </label>
-                      <input
-                        type="number"
-                        id="passengerCount"
-                        name="passengerCount"
-                        value={formData.passengerCount}
-                        onChange={handleChange}
-                        required
-                        min="1"
-                        max="6"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
-                      />
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div>
+                        <label htmlFor="passengerCount" className="block text-sm font-medium text-charcoal mb-1">
+                          Number of Passengers *
+                        </label>
+                        <input
+                          type="number"
+                          id="passengerCount"
+                          name="passengerCount"
+                          value={formData.passengerCount}
+                          onChange={handleChange}
+                          required
+                          min="1"
+                          max="14"
+                          className="w-full h-[42px] px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="vehicleType" className="block text-sm font-medium text-charcoal mb-1">
+                          Vehicle Type *
+                        </label>
+                        <select
+                          id="vehicleType"
+                          name="vehicleType"
+                          value={formData.vehicleType}
+                          onChange={handleChange}
+                          required
+                          className="w-full h-[42px] px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent bg-white"
+                        >
+                          <option value="">Select a vehicle</option>
+                          <option value="Luxury Sedan">Luxury Sedan (up to 3 passengers)</option>
+                          <option value="Executive SUV">Executive SUV (up to 6 passengers)</option>
+                          <option value="Luxury Van">Luxury Van (up to 14 passengers)</option>
+                        </select>
+                      </div>
                     </div>
 
                     {/* Round Trip Option */}
