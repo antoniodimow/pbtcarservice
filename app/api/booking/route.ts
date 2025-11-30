@@ -104,7 +104,7 @@ export async function POST(request: NextRequest) {
 
     // Send notification email to business owner
     await sendEmail({
-      to: 'antoniodimov04@gmail.com',
+      to: 'pbtcarservice@gmail.com',
       subject: `New Reservation Request from ${name}`,
       html: emailHtml,
     });
